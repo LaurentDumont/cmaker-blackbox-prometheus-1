@@ -7,7 +7,7 @@
 - name: Generate and copy template for Blackbox.
   template:
     src: blackbox.yml.j2
-    dest: /var/lib/docker/volumes/blackbox_config/blackbox.yml
+    dest: /var/lib/docker/volumes/blackbox_config/_data/blackbox.yml
 
 - name: Start the Blackbox Docker container.
   docker_container:
