@@ -1,0 +1,8 @@
+# {{ ansible_managed }}
+
+modules:
+  icmp_example:
+    prober: icmp
+    timeout: 5s
+    icmp:
+      preferred_ip_protocol: "ip4"

@@ -1,0 +1,22 @@
+---
+
+- name: Create the Blackbox exporter config volume.
+  docker_volume:
+    name: blackbox_config
+
+- name: Generate and copy template for Blackbox.
+  template:
+    src: blackbox.yml.j2
+    dest: /var/lib/docker/volumes/blackbox_config/blackbox.yml
+
+- name: Start the Blackbox Docker container.
+  docker_container:
+    name: blackbox_exporter
+    image: blackbox_exporter
+    state: started
+    restart: yes
+    ports:
+      - "9115:9115
+    volumes:
+      - "blackbox_config:/etc/blackbox:rw"
+    command: --config.file /etc/blackbox/blackbox.yml
