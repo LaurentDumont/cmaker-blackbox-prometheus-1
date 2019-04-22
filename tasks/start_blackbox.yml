@@ -16,7 +16,7 @@
     state: started
     restart: yes
     ports:
-      - "9115:9115
+      - "9115:9115"
     volumes:
       - "blackbox_config:/etc/blackbox:rw"
     command: --config.file /etc/blackbox/blackbox.yml
