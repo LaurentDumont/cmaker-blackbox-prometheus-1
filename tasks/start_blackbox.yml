@@ -12,7 +12,7 @@
 - name: Start the Blackbox Docker container.
   docker_container:
     name: blackbox_exporter
-    image: blackbox_exporter
+    image: prom/blackbox-exporter
     state: started
     restart: yes
     ports:
